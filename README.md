@@ -25,6 +25,31 @@ Then confirm:
 /mcp       # should show 10 tools under ml_intern_tools
 ```
 
+### First-run note — MCP server cold start
+
+On your **first** `/mcp` attempt after install, you may see:
+
+```
+Failed to reconnect to plugin:ml-intern:ml_intern_tools
+```
+
+This is expected. The plugin's MCP server uses `uv run`, and the first
+launch needs ~10–30 seconds to create a Python venv and install
+dependencies. Claude Code's MCP connection timeout is shorter than that,
+so the first attempt fails silently.
+
+**Fix:** wait ~30 seconds, then run `/mcp` again (or restart Claude Code).
+From then on the server starts in under a second.
+
+To pre-warm manually (optional):
+
+```bash
+cd ~/.claude/plugins/cache/ml-intern-plugin/ml-intern/0.1.0
+uv sync
+```
+
+After that, the very first `/mcp` connection will succeed.
+
 ### Prerequisites
 
 - **Python ≥3.11** and **`uv`** — the plugin's MCP server runs via
