@@ -10,7 +10,7 @@
       }
     },
     "hf-mcp-server": {
-      "transport": "http",
+      "type": "http",
       "url": "https://huggingface.co/mcp?login"
     }
   }

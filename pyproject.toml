@@ -1,6 +1,6 @@
 [project]
 name = "ml-intern-plugin"
-version = "0.1.0"
+version = "0.1.1"
 description = "Claude Code plugin: autonomous ML research agent with HF ecosystem tools and ML-shaped GitHub search."
 readme = "README.md"
 requires-python = ">=3.11"

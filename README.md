@@ -44,7 +44,7 @@ From then on the server starts in under a second.
 To pre-warm manually (optional):
 
 ```bash
-cd ~/.claude/plugins/cache/ml-intern-plugin/ml-intern/0.1.0
+cd ~/.claude/plugins/cache/ml-intern-plugin/ml-intern/*/
 uv sync
 ```
 

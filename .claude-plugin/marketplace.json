@@ -11,7 +11,7 @@
       "name": "ml-intern",
       "source": "./",
       "description": "Autonomous ML research agent: HF ecosystem tools, ML-shaped GitHub search, research-first workflow discipline. Runs training on your HPC.",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "author": {
         "name": "toqitahamid"
       },
