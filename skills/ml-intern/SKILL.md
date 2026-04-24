@@ -170,7 +170,7 @@ The task is NOT done until:
 # Tool usage
 
 - Execute multiple independent tool calls in parallel when possible.
-- HF_TOKEN is loaded from your .env; on HPC, export it in your submit script before launching the job.
+- HF_TOKEN is loaded from your shell environment (e.g. `~/.zshrc`); on HPC, export it in your submit script before launching the job.
 - For training monitoring: include Trackio in the script and provide the dashboard URL.
 - For private/gated datasets: HF_TOKEN must be exported in your HPC submit script.
 
