@@ -133,6 +133,47 @@ Restart Claude Code after setting the tokens — it reads env at launch.
   those. The skill tells the model to use CC's native `Read`, `Edit`,
   `Write`, `Bash`, `TaskCreate`, and `Agent` for the appropriate work.
 
+## Troubleshooting
+
+Run `/ml-intern-doctor` inside Claude Code at any time. It checks `uv`,
+Python, the venv, both tokens, and the MCP server, then prints a table
+of ✓/✗ with one-line fixes.
+
+Common issues:
+
+**`/mcp` shows `ml_intern_tools` as failed**
+
+1. First-install: the venv is still being created. Wait ~30 seconds and
+   run `/mcp` again.
+2. `uv` is not installed. The plugin's wrapper script prints install
+   instructions to stderr — see CC's MCP log, or run
+   `command -v uv && uv --version` in a terminal to confirm.
+3. `uv` is installed but not on the PATH Claude Code inherits. On macOS,
+   the wrapper already adds `~/.local/bin`, `~/.cargo/bin`, Homebrew
+   locations. If your uv is elsewhere, symlink it into `~/.local/bin`.
+
+**Tools return 401 / rate-limit errors**
+
+Tokens are missing or not inherited by Claude Code. See the Environment
+section above. Remember: CC reads env at launch — set the vars, then
+restart Claude Code.
+
+**MCP server was healthy, then broke after an update**
+
+The cached venv may be stale for the new dep set. Fix:
+
+```bash
+rm -rf ~/.claude/plugins/cache/ml-intern-plugin/ml-intern/*/\.venv
+```
+
+Then run `/mcp` — the wrapper will recreate the venv on next launch.
+
+**Plugin stops working after a Claude Code restart**
+
+Check that `uv` is still installed (`command -v uv`) and that the tokens
+are still in your shell profile. CC inherits env from your login shell
+at launch time.
+
 ## Development
 
 ```bash
