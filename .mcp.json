@@ -2,8 +2,8 @@
   "mcpServers": {
     "ml_intern_tools": {
       "type": "stdio",
-      "command": "uv",
-      "args": ["run", "python", "-m", "ml_intern_mcp.server"],
+      "command": "sh",
+      "args": ["${CLAUDE_PLUGIN_ROOT}/scripts/run-mcp.sh"],
       "env": {
         "HF_TOKEN": "${HF_TOKEN}",
         "GITHUB_TOKEN": "${GITHUB_TOKEN}"
