@@ -9,7 +9,7 @@
 Autonomous ML research agent for Claude Code. Adds a skill that crawls
 ML literature, audits HF datasets, writes pre-flight-validated training
 scripts, and submits to your HPC. Based on the
-[ml-intern agent by Hugging Face](https://github.com/huggingface/ml-intern).
+[ml-intern agent by 🤗 Hugging Face](https://github.com/huggingface/ml-intern).
 
 ## Prerequisites
 
