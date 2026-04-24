@@ -38,37 +38,44 @@ export HF_TOKEN="hf_..."         # https://huggingface.co/settings/tokens
 export GITHUB_TOKEN="ghp_..."    # https://github.com/settings/tokens (public_repo)
 ```
 
-Without tokens: HF tools rate-limit on public data and fail on gated
-content; GitHub tools rate-limit hard after a few calls.
+Without tokens, HF tools rate-limit on public data and fail on gated
+content; GitHub tools rate-limit after a handful of calls.
 
 ## Try it
+
+Dataset inspection:
 
 ```
 /ml-intern find a small image-classification dataset on Hugging Face and show me its schema
 ```
 
+Research workflow:
+
 ```
 /ml-intern plan a SFT recipe for a 3B model on a reasoning benchmark — start from the literature
 ```
 
+HPC script generation:
+
 ```
-/ml-intern write a SLURM sbatch script for a 7B SFT run on a100x4 with trackio logging
+/ml-intern write a SLURM sbatch script for a 7B SFT run on 4x A100 with Trackio logging
 ```
 
-The skill also auto-triggers on plain ML prompts — the slash command
-just forces it on.
+The skill auto-triggers on plain ML prompts too; the slash command is
+the explicit escape hatch.
 
 ## What's inside
 
-- **`ml-intern` skill** — research-first workflow, HPC-oriented (no HF
-  Jobs, no remote sandbox; uses your SLURM/PBS via Bash).
-- **10 MCP tools** (7 HF + 3 GitHub): `explore_hf_docs`, `fetch_hf_docs`,
+- **`ml-intern` skill** — research-first workflow, tuned for HPC
+  submission via SLURM or PBS. No HF Jobs, no remote sandbox.
+- **10 MCP tools** (7 HF, 3 GitHub): `explore_hf_docs`, `fetch_hf_docs`,
   `find_hf_api`, `hf_inspect_dataset`, `hf_repo_files`, `hf_repo_git`,
   `hf_papers`, `github_find_examples`, `github_list_repos`,
   `github_read_file`.
-- **Hugging Face MCP server** wired in automatically (OAuth on first use).
-- **`/ml-intern`** force-activates the skill.
-- **`/ml-intern-doctor`** diagnoses install/env issues.
+- **Hugging Face MCP server** — included; authenticates via OAuth on
+  first use.
+- **`/ml-intern`** — force-activates the skill for a turn.
+- **`/ml-intern-doctor`** — diagnoses install and env issues.
 
 ## Troubleshooting
 
@@ -78,9 +85,10 @@ tokens, and MCP server health.
 <details>
 <summary>Common fixes</summary>
 
-**`/mcp` shows `ml_intern_tools` failed.** First install: wait 30s,
-retry. Otherwise: `uv` is missing (check `command -v uv`) or not on
-Claude Code's PATH (symlink it into `~/.local/bin`).
+**`/mcp` shows `ml_intern_tools` failed.** On first install, wait 30
+seconds and retry. If it still fails, `uv` is either missing (run
+`command -v uv`) or not on Claude Code's PATH — symlink it into
+`~/.local/bin`.
 
 **401 / rate-limit errors.** Tokens missing. Set them in your shell
 profile and restart Claude Code.
@@ -104,13 +112,11 @@ uv run pytest
 
 Issues and PRs welcome at
 [github.com/toqitahamid/ml-intern-plugin](https://github.com/toqitahamid/ml-intern-plugin).
-Highest-value contributions: Windows support (`scripts/run-mcp.cmd`),
-bug reports from real usage, skill prompt improvements.
+Highest-value contributions: Windows support (a `scripts/run-mcp.cmd`
+sibling of the POSIX launcher), bug reports, and skill-prompt
+refinements.
 
-## Changelog
+## Changelog & license
 
-See [CHANGELOG.md](CHANGELOG.md).
-
-## License
-
-MIT. See [LICENSE](LICENSE).
+- Release history: [CHANGELOG.md](CHANGELOG.md)
+- License: MIT — see [LICENSE](LICENSE)
