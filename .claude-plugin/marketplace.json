@@ -1,0 +1,30 @@
+{
+  "name": "ml-intern-plugin",
+  "owner": {
+    "name": "toqitahamid"
+  },
+  "metadata": {
+    "description": "Autonomous ML research agent for Claude Code."
+  },
+  "plugins": [
+    {
+      "name": "ml-intern",
+      "source": "./",
+      "description": "Autonomous ML research agent: HF ecosystem tools, ML-shaped GitHub search, research-first workflow discipline. Runs training on your HPC.",
+      "version": "0.1.0",
+      "author": {
+        "name": "toqitahamid"
+      },
+      "repository": "https://github.com/toqitahamid/ml-intern-plugin",
+      "keywords": [
+        "machine-learning",
+        "huggingface",
+        "ml-research",
+        "fine-tuning",
+        "training",
+        "hpc"
+      ],
+      "category": "research"
+    }
+  ]
+}

@@ -9,8 +9,12 @@ Based on the standalone [ml-intern agent](https://github.com/toqitahamid/ml-inte
 
 ## Install
 
+Claude Code installs plugins from a **marketplace**, so installation is two
+steps: add the marketplace, then install the plugin.
+
 ```
-/plugin install github:toqitahamid/ml-intern-plugin
+/plugin marketplace add toqitahamid/ml-intern-plugin
+/plugin install ml-intern@ml-intern-plugin
 /reload-plugins
 ```
 
@@ -31,7 +35,8 @@ Then confirm:
 
 ```
 git clone https://github.com/toqitahamid/ml-intern-plugin
-/plugin install /absolute/path/to/ml-intern-plugin
+/plugin marketplace add /absolute/path/to/ml-intern-plugin
+/plugin install ml-intern@ml-intern-plugin
 /reload-plugins
 ```
 
