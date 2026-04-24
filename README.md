@@ -12,7 +12,7 @@ workflow: research-first (literature crawl, methodology extraction), data
 audit, pre-flight validated training scripts, and HPC-ready submission
 patterns.
 
-Based on the standalone [ml-intern agent](https://github.com/toqitahamid/ml-intern).
+Based on the standalone [ml-intern agent by Hugging Face](https://github.com/huggingface/ml-intern).
 
 **Platforms:** macOS and Linux. Windows is not yet supported (the MCP
 launcher is a POSIX shell script). See [Issues](https://github.com/toqitahamid/ml-intern-plugin/issues)
