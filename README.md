@@ -1,5 +1,12 @@
 # ml-intern — Claude Code plugin
 
+[![Version](https://img.shields.io/github/v/tag/toqitahamid/ml-intern-plugin?label=version&color=blue)](https://github.com/toqitahamid/ml-intern-plugin/releases)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![Python](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/)
+[![Platform](https://img.shields.io/badge/platform-macOS%20%7C%20Linux-lightgrey.svg)](#prerequisites)
+[![Claude Code Plugin](https://img.shields.io/badge/Claude%20Code-plugin-orange.svg)](https://docs.claude.com/en/docs/claude-code)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](#contributing)
+
 Autonomous ML research agent for Claude Code. Gives CC the `ml-intern`
 workflow: research-first (literature crawl, methodology extraction), data
 audit, pre-flight validated training scripts, and HPC-ready submission
@@ -234,6 +241,10 @@ Especially valuable:
 - Windows support (a `scripts/run-mcp.cmd` equivalent of `run-mcp.sh`)
 - Reports of failure modes not covered in [Troubleshooting](#troubleshooting)
 - Skill prompt improvements (tuned from real usage)
+
+## Changelog
+
+Release history is maintained in [CHANGELOG.md](CHANGELOG.md).
 
 ## License
 
