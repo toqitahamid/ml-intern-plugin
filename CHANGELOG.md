@@ -7,6 +7,29 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.2] — 2026-07-05
+
+### Changed
+
+- **Flash-attention guidance synced with upstream** (huggingface/ml-intern
+  #204/#331). The skill previously told the agent to install `flash-attn`;
+  it now instructs the opposite: never compile `flash-attn` or use
+  `attn_implementation="flash_attention_2"` — load prebuilt Hub kernels
+  via the HF `kernels` library (e.g.
+  `attn_implementation="kernels-community/flash-attn2"`), Ampere-or-newer
+  GPUs only.
+- **New skill pitfall: stale preinstalled packages.** Explicitly install
+  or upgrade the core stack (`torch`, `transformers`, `trl`, `accelerate`,
+  `datasets`, `trackio`, `kernels~=0.12.0`) and print versions before
+  model loading.
+- **Fail-fast requirements for training scripts** in the pre-flight
+  check: version prints, dataset-column asserts, placeholder asserts,
+  `push_to_hub`/`hub_model_id` asserts.
+- **Exact-source submission rule.** Submit the exact validated script —
+  never reconstruct a similar script from memory after testing.
+- **`explore_hf_docs` kernels description** synced with upstream: loads
+  prebuilt compute kernels from the Hub via `attn_implementation`.
+
 ## [0.1.1] — 2026-04-24
 
 ### Fixed
@@ -72,6 +95,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   plugin is installable via `/plugin marketplace add` +
   `/plugin install`.
 
-[Unreleased]: https://github.com/toqitahamid/ml-intern-plugin/compare/v0.1.1...HEAD
+[Unreleased]: https://github.com/toqitahamid/ml-intern-plugin/compare/v0.1.2...HEAD
+[0.1.2]: https://github.com/toqitahamid/ml-intern-plugin/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/toqitahamid/ml-intern-plugin/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/toqitahamid/ml-intern-plugin/releases/tag/v0.1.0
